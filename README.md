@@ -9,7 +9,6 @@
 [![Discourse posts](https://img.shields.io/discourse/https/discuss.libp2p.io/posts.svg)](https://discuss.libp2p.io)
 
 ## 【TFrame Unity框架 BiliBili：熊biabia】
-### bilibili链接 https://www.bilibili.com/read/cv14628137?spm_id_from=333.999.0.0
 
 ```
 项目结构
