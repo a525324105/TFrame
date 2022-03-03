@@ -45,7 +45,7 @@ Scripts
 
 ## 1.ECS架构
 
-### ECS架构类似unity的gameObject->component模式, 但是ECS是面向数据的编程思想，不同于面向对象以及Unity常用的Mono模式。Mono模式在内存中是散列的，而面向数据的ECS则是在内存中线性分布，且支持多线程（JobSystem、Brust编译）因此性能将高于原生Unity-Mono大约5倍左右。可实现千人同屏。
+### ECS架构类似unity的gameObject->component模式, 但是ECS是面向数据的编程思想，不同于面向对象以及Unity常用的Mono模式。Mono模式在内存中是散列的，而面向数据的ECS则是在内存中线性分布，且支持多线程（JobSystem、Brust编译）因此性能远高于原生Unity-Mono。可实现千人同屏。
 ### 在ECS中gameObject=entity, component=component, system类执行, ECS跟gameObject模式基本流程是一样的, 只是ecs中的组件可以复用, 而gameObject的component则不能复用, 在创建上万个对象时, gameObject就得重新new出来对象和组件, 而ecs调用Destroy时是把entity或component压入对象池, 等待下一次复用.实际上对象没有被释放,所以性能远高于gameObject的原因
 
 ```Csharp
@@ -84,3 +84,10 @@ static void Main(string[] args)
 
 ## 2. Actor组合模式
 ### todo
+
+---
+## 3. 网络框架
+## 3.1 golang帧同步
+### 使用KCP，ProtoBuf做协议实现的帧同步框架，客户端同步随机数种子，保证随机数一致，实现了回滚帧，断线重连、心跳等等机制。稍微完善即可实现一款帧同步游戏。
+## 3.2 golang状态同步
+### 使用UDP同步位置，TCP作为常用包处理。//todo
