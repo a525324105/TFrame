@@ -7,7 +7,7 @@ public class GameData
     public ulong MyID;
     public class PlayerData
     {
-        
+
         public int Progress;
         public Vector3 Pos;
         public Quaternion Dir;
@@ -47,7 +47,7 @@ public class GameLogic
         Data.Players[id] = new GameData.PlayerData();
     }
 
-    public void SetProgress(ulong id,int progress)
+    public void SetProgress(ulong id, int progress)
     {
         Data.Players[id].Progress = progress;
     }
@@ -65,6 +65,7 @@ public class GameLogic
                 PlayerCmd(f);
             }
         }
+
     }
 
     public void PlayerCmd(pb.InputData cmd)
@@ -74,29 +75,27 @@ public class GameLogic
         {
             return;
         }
-        var position = new Vector3(cmd.X,cmd.Y,cmd.Z);
         var dir = cmd.Sid;
 
-        data.Pos = position;
-        Debug.LogError(string.Format("CMDKEY player[{0}] = ", cmd.Id) + data.Pos);
-        //if (InputDefined.Forward == dir)
-        //{
-        //    data.Pos = data.Pos + Vector3.forward;
-        //} else if (InputDefined.Back == dir)
-        //{
-        //    data.Pos = data.Pos + Vector3.back;
-        //}
-        //else if (InputDefined.Left == dir)
-        //{
-        //    data.Pos = data.Pos + Vector3.left;
-        //}
-        //else if (InputDefined.Right == dir)
-        //{
-        //    data.Pos = data.Pos + Vector3.right;
-        //}
-        //else if (InputDefined.None == dir)
-        //{
-        //    data.Pos = Vector3.zero;
-        //}
+        if (1 == dir)
+        {
+            data.Pos = data.Pos + Vector3.forward;
+        }
+        else if (2 == dir)
+        {
+            data.Pos = data.Pos + Vector3.back;
+        }
+        else if (3 == dir)
+        {
+            data.Pos = data.Pos + Vector3.left;
+        }
+        else if (4 == dir)
+        {
+            data.Pos = data.Pos + Vector3.right;
+        }
+        else if (0 == dir)
+        {
+            data.Pos = Vector3.zero;
+        }
     }
 }

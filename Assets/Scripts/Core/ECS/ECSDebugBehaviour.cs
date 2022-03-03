@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor.Examples;
-using UnityEngine;
 
 namespace ECS
 {

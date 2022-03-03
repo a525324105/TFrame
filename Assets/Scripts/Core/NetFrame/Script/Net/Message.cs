@@ -16,7 +16,7 @@ public static class PacketWraper
     public static ByteBuf NewPacket(pb.ID id, Google.ProtocolBuffers.IMessage msg = null)
     {
         var bufLen = BitConverter.GetBytes((ushort)0);
-        
+
 
         var t = new List<byte>();
 
@@ -41,9 +41,9 @@ public static class PacketWraper
         t.Add((byte)id);
         if (null != buffData)
         {
-             t.AddRange(buffData);
+            t.AddRange(buffData);
         }
-        
+
         return new ByteBuf(t.ToArray());
     }
 
@@ -54,7 +54,7 @@ public static class PacketWraper
         var bID = temp.GetRange(0, 2);
         bID.Reverse();
         var len = BitConverter.ToUInt16(bID.ToArray(), 0);
-        p.id = (int) temp[2];
+        p.id = (int)temp[2];
         p.data = temp.GetRange(3, len).ToArray();
 
         return p;
