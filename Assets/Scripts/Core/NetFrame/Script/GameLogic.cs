@@ -77,23 +77,23 @@ public class GameLogic
         }
         var dir = cmd.Sid;
 
-        if (1 == dir)
+        if (InputDefined.Forward == dir)
         {
             data.Pos = data.Pos + Vector3.forward;
         }
-        else if (2 == dir)
+        else if (InputDefined.Back == dir)
         {
             data.Pos = data.Pos + Vector3.back;
         }
-        else if (3 == dir)
+        else if (InputDefined.Left == dir)
         {
             data.Pos = data.Pos + Vector3.left;
         }
-        else if (4 == dir)
+        else if (InputDefined.Right == dir)
         {
             data.Pos = data.Pos + Vector3.right;
         }
-        else if (0 == dir)
+        else if (InputDefined.None == dir)
         {
             data.Pos = Vector3.zero;
         }

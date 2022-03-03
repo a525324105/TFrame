@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using cocosocket4unity;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Network : MonoBehaviour
 {
@@ -18,10 +19,6 @@ public class Network : MonoBehaviour
     void Awake()
     {
         Instance = this;
-    }
-    // Use this for initialization
-    void Start () {
-        
     }
 
     public void Connect(string host, int port)
@@ -44,7 +41,6 @@ public class Network : MonoBehaviour
         client.Start();
     }
 
-	// Update is called once per frame
 	void Update () {
 	    if (null != client && client.IsRunning() && Connected)
 	    {
@@ -69,9 +65,9 @@ public class Network : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     void OnGUI()
     {
-
         //StartCoroutine(Co());
         if (null != client && client.IsRunning() && Connected)
         {
@@ -81,6 +77,7 @@ public class Network : MonoBehaviour
             }
         }
     }
+#endif
 
     public void HandleReceive(ByteBuf bb)
     {
@@ -90,19 +87,19 @@ public class Network : MonoBehaviour
     public void HandleException(Exception ex)
     {
         UnityEngine.Debug.LogWarning("MyKcp HandleException:"+ ex.Message);
-        Application.LoadLevel(0);
+        SceneManager.LoadScene(0);
     }
 
     public void HandleTimeout()
     {
         Connected = false;
         UnityEngine.Debug.LogWarning("MyKcp HandleTimeout");
-        Application.LoadLevel(0);
+        SceneManager.LoadScene(0);
     }
 
     void OnDestroy()
     {
-        if (null != client)
+        if (client != null)
         {
             client.Stop();
         }

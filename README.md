@@ -48,6 +48,21 @@ Scripts
 ### ECS架构类似unity的gameObject->component模式, 但是ECS是面向数据的编程思想，不同于面向对象以及Unity常用的Mono模式。Mono模式在内存中是散列的，而面向数据的ECS则是在内存中线性分布，且支持多线程（JobSystem、Brust编译）因此性能远高于原生Unity-Mono。可实现千人同屏。
 ### 在ECS中gameObject=entity, component=component, system类执行, ECS跟gameObject模式基本流程是一样的, 只是ecs中的组件可以复用, 而gameObject的component则不能复用, 在创建上万个对象时, gameObject就得重新new出来对象和组件, 而ecs调用Destroy时是把entity或component压入对象池, 等待下一次复用.实际上对象没有被释放,所以性能远高于gameObject的原因
 
+ * E-- Entity 实体，本质上是存放组件的容器
+ * C -- Component 组件，游戏所需的所有数据结构
+ * S -- System 系统，根据组件数据处理逻辑状态的管理器
+ * Component 组件只能存放数据，不能实现任何处理状态相关的函数
+ * System系统不可以自己去记录维护任何状态
+ * 说的通俗点，就是组件放数据，系统来处理。这么做的好处，就是为了尽可能地让数据与逻辑进行解耦
+ * 一个良好的数据结构设计，也会以增加CPU缓存命中的形式来提升性能表现
+ * 举个例子，常见的组件包括而不仅限于:
+ * 渲染组件 ：模型的顶点、材质等数据，保证我们能正确地渲染到world中
+ * 位置组件 ：记录着实体在这个world的真实位置
+ * 特效组件 ：不同的时机，可能会需要播放不同的粒子特效以增强视觉感受
+
+![Image text](./ReadmeRes/ECS.jpg)
+![Image text](./ReadmeRes/ECS2.png)
+
 ```Csharp
 //例子
 //ECS时间组件

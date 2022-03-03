@@ -147,8 +147,5 @@ public class Loom : MonoBehaviour
         {
             delayed.action();
         }
-
-
-
     }
 }
