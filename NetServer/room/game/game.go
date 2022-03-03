@@ -7,9 +7,10 @@ import (
 	"NetServer/protocol"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/wonderivan/logger"
 
 	"NetServer/network"
+
+	logger "github.com/wonderivan/logger"
 )
 
 // GameState 游戏状态
@@ -134,8 +135,8 @@ func (g *Game) ProcessMsg(id uint64, msg *protocol.Packet) {
 		return
 	}
 
-	//log日志
-	//logger.Info("[game(%d)] processMsg player[%d] msg=[%d]", g.id, player.id, msg.GetMessageID())
+	//Log操作日志
+	logger.Info("[game(%d)] processMsg player[%d] msg=[%d]", g.id, player.id, msg.GetMessageID())
 
 	msgID := pb.ID(msg.GetMessageID())
 

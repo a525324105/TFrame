@@ -8,7 +8,7 @@ import (
 	"NetServer/network"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/wonderivan/logger"
+	logger "github.com/wonderivan/logger"
 )
 
 const (

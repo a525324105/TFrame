@@ -15,7 +15,7 @@ import (
 const (
 	Frequency   = 30                      //每分钟心跳频率
 	TickTimer   = time.Second / Frequency //心跳Timer
-	TimeoutTime = time.Minute * 10        //超时时间
+	TimeoutTime = time.Minute * 5         //超时时间
 )
 
 type packet struct {
