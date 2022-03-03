@@ -3,20 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 
-/* Author - AlexTang
+/*
+ * Author - AlexTang
  * Date   - 2022/3/3
- * E-- Entity 实体，本质上是存放组件的容器
- * C -- Component 组件，游戏所需的所有数据结构
- * S -- System 系统，根据组件数据处理逻辑状态的管理器
- * Component 组件只能存放数据，不能实现任何处理状态相关的函数
- * System系统不可以自己去记录维护任何状态
- * 说的通俗点，就是组件放数据，系统来处理。这么做的好处，就是为了尽可能地让数据与逻辑进行解耦
- * 一个良好的数据结构设计，也会以增加CPU缓存命中的形式来提升性能表现
  *
- * 举个例子，常见的组件包括而不仅限于:
- * 渲染组件 ：模型的顶点、材质等数据，保证我们能正确地渲染到world中
- * 位置组件 ：记录着实体在这个world的真实位置
- * 特效组件 ：不同的时机，可能会需要播放不同的粒子特效以增强视觉感受
  */
 
 namespace ECS
