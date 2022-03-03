@@ -19,6 +19,8 @@ namespace ECS
             actor.transform = actor.gameObject.GetComponent<Transform>();
             entity.AddComponent<ECSInputComponent>();
             entity.AddComponent<ECSMoveComponent>();
+            entity.CheckDebugInfo(actor.gameObject);
+            Debug.Log(entity.ToString());
         }
 
         void Update()

@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 928262295}
   - component: {fileID: 928262296}
+  - component: {fileID: 928262297}
   m_Layer: 0
   m_Name: ECSDemoApp
   m_TagString: Untagged
@@ -165,6 +166,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   object: {fileID: 1887813329867170820, guid: e3fbaa3f05da89140b2fb7c0e59d9378, type: 3}
+--- !u!114 &928262297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928262294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc3e456c545c0c419624e068b9249dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  m_ECSInfo:
+  - m_name: 
+    m_info:
+    - Type: 2
+      m_name: 
+      val: 
 --- !u!1 &1458242505
 GameObject:
   m_ObjectHideFlags: 0

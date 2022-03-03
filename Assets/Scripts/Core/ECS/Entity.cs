@@ -134,5 +134,25 @@ namespace ECS
             str += "]";
             return $"{GetType().Name} Components: {str}";
         }
+
+
+        public void CheckDebugInfo(GameObject gameObject)
+        {
+#if UNITY_EDITOR
+            if (gameObject == null)
+            {
+                return;
+            }
+
+            var debugBehaviour = gameObject.AddComponent<ECSDebugBehaviour>();
+            debugBehaviour.m_ECSInfo.Clear();
+            for (int i = 0; i < this.Components.Count; i++)
+            {
+                var component = this.Components[i];
+                var cmptName = component.GetType().Name;
+                debugBehaviour.SetDebugInfo(cmptName, "", "");
+            }
+#endif
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace ECS
+﻿using UnityEngine;
+
+namespace ECS
 {
     /// <summary>
     /// ECS构架可以将此组件从Entity上移除这个组件并丢入对象池，给其他此刻需要此组件的Entity使用，因此可以节省大量的内存反复创建和释放， 这也是ECS的特性可以大量重复使用Compoent
@@ -7,6 +9,14 @@
     {
 #pragma warning disable IDE1006 
         public Entity Entity { get; set; }
+
+        public void SetDebugInfo(string key, string value,GameObject gameObject)
+        {
+#if UNITY_EDITOR
+            var debugData = UnityUtil.AddMonoBehaviour<ECSDebugBehaviour>(gameObject);
+            debugData.SetDebugInfo(GetType().Name,key,value);
+#endif
+        }
 #pragma warning restore IDE1006 
     }
 }
